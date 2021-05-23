@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <h1>My List</h1>
+        <% allJobs.forEach(item => { %>
+            <div style="border: 2px solid black;">
+                <h1> title: <%= item.title %></h1>
+                <p> company: <%= item.company %></p>
+                <p> location: <%= item.location %></p>
+                <a href="<%= item.url %>"><%= item.url %></a>
+                <p> description: <%= item.description %> </p>
+
+
+                <form action="/delete/<%= item.id %>?_method=delete">
+                    <input type="submit" value="delete" id="">
+                </form>
+
+
+                <button id="updateButton"> update</button>
+
+                <form action="/update/<%= item.id %>?_method=put" method="POST" id="updateForm">
+                    <label for="title">title: </label>
+                    <input type="text" name="title" value="<%= item.title %>" id="">
+                    
+                    <label for="company">company: </label>
+                    <input type="text" name="company" value="<%= item.company %>" id="">
+
+                    <label for="location">location: </label>
+                    <input type="text" name="location" value="<%= item.location %>" id="">
+
+                    <label for="url">url: </label>
+                    <input type="text" name="url" value="<%= item.url %>" id="">
+
+                    <label for="description">description: </label>
+                    <input type="text" name="description" value="<%= item.description %>" id="">
+
+                    <input type="submit" value="view details" id="">
+                </form>
+            </div>
+        <%}) %>
+    </main>
+
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

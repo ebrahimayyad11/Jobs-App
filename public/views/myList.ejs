@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <h1>My List</h1>
+        <% allJobs.forEach(item => { %>
+            <div style="border: 2px solid black;">
+                <h3> title: <%= item.title %></h3>
+                <p> company: <%= item.company %></p>
+                <p> location: <%= item.location %></p>
+                <a href="<%= item.url %>"><%= item.url %></a>
+
+                <form action="/details/<%= item.id %>" method="POST">
+
+                    <input type="submit" value="view details" id="">
+                </form>
+            </div>
+        <%}) %>
+    </main>
+</body>
+</html>
